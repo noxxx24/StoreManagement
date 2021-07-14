@@ -20,12 +20,12 @@ with st.form("sales",clear_on_submit = True):
     st.write("Input Sales Data")
     item_code = int(st.number_input("Enter Item Code:", value = 0, format='%d'))
     item_qty = int(st.number_input("Enter Item Quantity:", value = 0, format='%d'))
-    
+
     Item_Code = inventory.iloc[item_code][0]
     Item = inventory.iloc[item_code][1]
     Price = inventory.iloc[item_code][3]
     Amount = item_qty * Price
-    
+
     submitted = st.form_submit_button("Submit")
     if submitted:
         sale_var = pd.DataFrame([[dateStr, Item_Code, Item, item_qty, Price, Amount]],columns=sale.columns)
